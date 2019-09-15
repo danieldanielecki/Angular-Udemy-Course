@@ -1,0 +1,37 @@
+<!-- Property binding for native HTML property, which is disabled in this case. -->
+<!--<button class="btn btn-primary" [disabled]="allowNewServer">Add Server</button>-->
+<!--<button class="btn btn-primary" [disabled]="!allowNewServer">Add Server</button>-->
+
+<!-- String interpolation with the same result as in property binding. -->
+<!--<p>{{ allowNewServer }}</p>-->
+<!--<p [innerText]="allowNewServer">{{ allowNewServer }}</p>-->
+
+<!-- Event binding. -->
+<!--<label>Server Name</label>-->
+<!--<button class="btn btn-primaery" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>-->
+<!--<p>{{ serverCreationStatus }}</p>-->
+
+<!-- $event is using for event binding, it gives access to event data. -->
+<!--<input type="text" class="form-control" (input)="onUpdateServerName($event)">-->
+<!--<p>{{ serverName }}</p>-->
+
+<!--<input type="text" class="form-control" [(ngModel)]="serverName">-->
+
+<!-- Using if/else, * before means it changes DOM (adds/remove element). -->
+<label>Server Name</label>
+<input type="text" class="form-control" [(ngModel)]="serverName">
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
+<p *ngIf="serverCreated; else noServer">Server was created, server name is {{ serverName }}</p>
+<!-- # means local reference, for now think about this as a marker. -->
+<!-- ng-template means it will be used to mark places in the DOM. -->
+<ng-template #noServer>
+  <p>No server was created!</p>
+</ng-template>
+
+<!-- Components are reusable, added manually. -->
+<!--<app-server></app-server>-->
+<!--<app-server></app-server>-->
+
+
+<app-server *ngFor="let server of servers"></app-server>
+

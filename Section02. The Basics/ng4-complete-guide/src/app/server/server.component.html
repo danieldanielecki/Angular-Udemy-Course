@@ -1,0 +1,7 @@
+<!--<p>Server with ID {{ serverId }} is {{ getServerStatus() }}</p>-->
+<!--<p>{{ 'Server' }} with ID {{ serverId }} is {{ serverStatus }}</p>-->
+<!--<p>{{ 'Server' }} with ID {{ serverId }} is {{ getServerStatus() }}</p>-->
+
+<!-- Dynamically styling, binding to property of ngStyle directive. -->
+<!-- ngClass - dynamically add or remove CSS class, binding to property of ngClass directive. -->
+<p [ngStyle]="{'background-color': getColor()}" [ngClass]="{'online': serverStatus === 'online'}">{{ 'Server' }} with ID {{ serverId }} is {{ serverStatus }}</p>

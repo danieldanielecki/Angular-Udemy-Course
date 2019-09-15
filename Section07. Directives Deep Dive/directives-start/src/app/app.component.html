@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button
+        class="btn btn-primary"
+        (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
+      <br><br>
+      <ul class="list-group">
+        <div *ngIf="onlyOdd">
+          <li
+            class="list-group-item"
+            [ngClass]="{odd: odd % 2 !== 0}"
+            [ngStyle]="{backgroundColor: odd % 2 !== 0 ? 'yellow' : 'transparent'}"
+            *ngFor="let odd of oddNumbers"
+          >
+            {{ odd }}
+          </li>
+        </div>
+        <!--<div *ngIf="!onlyOdd">-->
+          <!--<li-->
+            <!--class="list-group-item"-->
+            <!--[ngClass]="{odd: even % 2 !== 0}"-->
+            <!--[ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"-->
+            <!--*ngFor="let even of evenNumbers"-->
+          <!--&gt;-->
+            <!--{{ even }}-->
+          <!--</li>-->
+        <!--</div>-->
+        <!-- Custom structural directive. -->
+        <div *appUnless="onlyOdd">
+          <li
+            class="list-group-item"
+            [ngClass]="{odd: even % 2 !== 0}"
+            [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"
+            *ngFor="let even of evenNumbers"
+          >
+            {{ even }}
+          </li>
+        </div>
+      </ul>
+      <!-- Own selector as Directive, no need to use []. -->
+      <p appBasicHighlight>Style me with basic directive!</p>
+      <!-- Dynamic directive, using this approach we can bind the directive from outside and set property here. -->
+      <p appBetterHighlight [defaultColor]="'yellow'" [highlightColor]="'red'">Style me with basic directive!</p>
+
+      <!-- ngSwitch. -->
+      <div [ngSwitch]="value">
+        <p *ngSwitchCase="5">Value is 5</p>
+        <p *ngSwitchCase="10">Value is 10</p>
+        <p *ngSwitchCase="100">Value is 100</p>
+        <p *ngSwitchDefault>Value is Default</p>
+      </div>
+    </div>
+  </div>
+</div>

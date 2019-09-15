@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <ul class="nav nav-tabs">
+        <!-- This solutions reloads our application on each click, which resets our application on every link click, this is not how we should implement navigation. -->
+        <!--
+        <li role="presentation" class="active"><a href="/">Home</a></li>
+        <li role="presentation"><a href="/servers">Servers</a></li>
+        <li role="presentation"><a href="/users">Users</a></li>
+        -->
+
+        <!-- Correct method of routing. -->
+        <!-- Remember to add slash, as without it the route would be relative, instead of absolute, at least in this case it is not what we want. -->
+        <!-- 'exact: true' means only add this routerLinkActive CSS class, if the exact (full path, without '/') is active. -->
+        <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/">Home</a></li>
+        <!-- './servers' is the same as just 'servers'. -->
+        <!--<li role="presentation"><a routerLink="./servers">Servers</a></li>-->
+        <li role="presentation" routerLinkActive="active"><a routerLink="servers">Servers</a></li>
+        <!-- Second way to make routes. -->
+        <li role="presentation" routerLinkActive="active"><a [routerLink]="['users']">Users</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <!--<app-home></app-home>-->
+      <!-- Special directive provided by Angular, it marks a place in document where we want to an Angular router load the component or currently selected route. -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <!--<div class="row">-->
+    <!--<div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">-->
+      <!--<app-users></app-users>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="row">-->
+    <!--<div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">-->
+      <!--<app-servers></app-servers>-->
+    <!--</div>-->
+  <!--</div>-->
+</div>

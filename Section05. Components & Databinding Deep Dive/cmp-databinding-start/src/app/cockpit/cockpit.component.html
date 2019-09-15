@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-xs-12">
+    <p>Add new Servers or blueprints!</p>
+    <label>Server Name</label>
+    <!-- Two way data binding. -->
+    <!--<input type="text" class="form-control" [(ngModel)]="newServerName">-->
+
+    <!-- Local reference. -->
+    <!-- #serverNameInput is a reference to element. -->
+    <input
+      type="text"
+      class="form-control"
+      #serverNameInput>
+    <label>Server Content</label>
+    <!-- Two way data binding. -->
+    <!--<input type="text" class="form-control" [(ngModel)]="newServerContent">-->
+
+    <!-- Local reference -->
+    <input
+      type="text"
+      class="form-control"
+      #serverContentInput>
+    <br>
+    <!-- Two way data binding. -->
+    <!--<button-->
+      <!--class="btn btn-primary"-->
+      <!--(click)="onAddServer()">Add Server</button>-->
+
+    <!-- Local reference, serverNameInput can be used only in the template, not in the TypeScript code. -->
+    <button
+    class="btn btn-primary"
+    (click)="onAddServer(serverNameInput)">Add Server</button>
+    <button
+      class="btn btn-primary"
+      (click)="onAddBlueprint(serverNameInput)">Add Server Blueprint</button>
+  </div>
+</div>
