@@ -1,1 +1,1 @@
-This repository holds source code for [Angular 8 (formerly Angular 2) - The Complete Guide](https://www.udemy.com/the-complete-guide-to-angular-2/) Udemy course with personal comments about the source code written during learning.
+This repository holds source code for [Angular 7 (formerly Angular 2) - The Complete Guide](https://www.udemy.com/the-complete-guide-to-angular-2/) Udemy course with personal comments about the source code written during learning.
